@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cascade index{% endblock %}
+
+{% block body %}
+    <h1>Cascade index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>Presentation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cascade in cascades %}
+            <tr>
+                <td>{{ cascade.id }}</td>
+                <td>{{ cascade.libelle }}</td>
+                <td>{{ cascade.presentation }}</td>
+                <td>
+                    <a href="{{ path('site_cascade_show', {'id': cascade.id}) }}">show</a>
+                    <a href="{{ path('site_cascade_edit', {'id': cascade.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('site_cascade_new') }}">Create new</a>
+{% endblock %}

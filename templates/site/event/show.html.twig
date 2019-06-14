@@ -1,0 +1,50 @@
+{% extends 'event.html.twig' %}
+
+{% block title %}Event{% endblock %}
+
+{% block content %}
+<section class="main_content">
+    <section class="sectionHead" >
+    {{ event.country|raw }}
+    </section>
+    <section class="event notifications" >
+        {% for notification in event.notifications %}
+            {{ render(controller('App\\Controller\\Objet\\NotificationController::show', { 'id': notification })) }}
+        {% endfor %}
+    </section>
+
+    <section  class="sectionInfo" />
+        <article class="event">
+            <header><h2>{{ event.libelle|raw }}</h2></header>
+            <p class="type">{{ event.type|raw }}</p>
+            <p class="agence">{{ event.agence|raw }}</p>
+            <p class="sectionDate">
+                {% if event.end is empty %}
+                    Le {{ event.start|localizeddate('none', 'none', null, null, "dd MMMM Y") }}
+                {% elseif event.start|localizeddate('none', 'none', null, null, "MMMM") is same as(event.end|localizeddate('none', 'none', null, null, "MMMM")) %}
+                    Du {{ event.start|localizeddate('none', 'none', null, null, "dd") }} au {{ event.end|localizeddate('long', 'none') }}
+                {% else %}
+                    Du {{ event.start|localizeddate('none', 'none', null, null, "dd MMMM Y") }} au {{ event.end|localizeddate('none', 'none', null, null, "dd MMMM Y") }}
+                {% endif %}
+            </p>
+            {{ event.resume|raw }}
+        </article>
+    </section>
+</section>
+{% endblock %}
+
+{#% block content %}
+    <article>
+        <header>
+            <p class="event mois"></p>
+            <p class="event titre">{{ event.libelle }}</p>
+            <p class="event type"></p>
+            <p class="event agency"></p>
+            <p class="event periode"></p>
+        </header>
+        class="event resume">{{ event.resume|raw }}
+        <img src="" />
+        class="event description">{{ event.description|raw }}
+        <footer></footer>
+    </article>
+{% endblock %#}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Cascade{% endblock %}
+
+{% block body %}
+    <h1>Create new Cascade</h1>
+
+    {{ include('site_cascade/_form.html.twig') }}
+
+    <a href="{{ path('site_cascade_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,150 @@
+{% extends 'event.html.twig' %}
+
+{% block title %}Event index{% endblock %}
+
+{% block content %}
+    <div class="row gtr-200">
+        <div class="col-4 col-12-mobile" id="sidebar">
+            <hr class="first" />
+            <section>
+                <header>
+                    <h3><a href="#">Accumsan sed penatibus</a></h3>
+                </header>
+                <p>
+                    Dolor sed fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor etiam
+                    porttitor phasellus tempus cubilia ultrices tempor sagittis  tellus ante diam nec penatibus dolor cras
+                    magna tempus feugiat veroeros.
+                </p>
+                <footer>
+                    <a href="#" class="button">Learn More</a>
+                </footer>
+            </section>
+            <hr />
+            <section>
+                <header>
+                    <h3><a href="#">Sed lorem etiam consequat</a></h3>
+                </header>
+                <p>
+                    Tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer interdum.
+                </p>
+                <div class="row gtr-50">
+                    <div class="col-4">
+                        <a href="#" class="image fit"><img src="/themes/html5up-helios/images/pic10.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-8">
+                        <h4>Nibh sed cubilia</h4>
+                        <p>
+                            Amet nullam fringilla nibh nulla convallis tique ante proin.
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <a href="#" class="image fit"><img src="/themes/html5up-helios/images/pic11.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-8">
+                        <h4>Proin sed adipiscing</h4>
+                        <p>
+                            Amet nullam fringilla nibh nulla convallis tique ante proin.
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <a href="#" class="image fit"><img src="/themes/html5up-helios/images/pic12.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-8">
+                        <h4>Lorem feugiat magna</h4>
+                        <p>
+                            Amet nullam fringilla nibh nulla convallis tique ante proin.
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <a href="#" class="image fit"><img src="/themes/html5up-helios/images/pic13.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-8">
+                        <h4>Sed tempus fringilla</h4>
+                        <p>
+                            Amet nullam fringilla nibh nulla convallis tique ante proin.
+                        </p>
+                    </div>
+                    <div class="col-4">
+                        <a href="#" class="image fit"><img src="/themes/html5up-helios/images/pic14.jpg" alt="" /></a>
+                    </div>
+                    <div class="col-8">
+                        <h4>Malesuada fermentum</h4>
+                        <p>
+                            Amet nullam fringilla nibh nulla convallis tique ante proin.
+                        </p>
+                    </div>
+                </div>
+                <footer>
+                    <a href="#" class="button">Magna Adipiscing</a>
+                </footer>
+            </section>
+        </div>
+        <div class="col-8 col-12-mobile imp-mobile" id="content"> <div style="width:500px"> {% include '@FullCalendar/Calendar/calendar.html.twig' %}</div>
+            <article id="main">
+                <header>
+                    <h2><a href="#">Evénements</a></h2>
+                    <p>
+                        Liste des événements
+                    </p>
+                </header>
+            {% for event in events %}
+                <section class="ro31">
+                    <header class="P5">
+                        <h3 class="T63"><a href={{ path('site_event_show', {'id': event.id}) }}>{{ event.libelle }}</a></h3>
+                    </header>
+                    <p class="P5 T64">{{ event.type }}</p>
+                    <p class="P5 T65">{{ event.agence }}</p>
+                    {% if event.start %}
+                        <p class="P5 T66">
+                            {% if event.end is empty %}
+                                Le {{ event.start|localizeddate('none', 'none', null, null, "dd MMMM Y") }}
+                            {% elseif event.start|localizeddate('none', 'none', null, null, "MMMM") is same as(event.end|localizeddate('none', 'none', null, null, "MMMM")) %}
+                                Du {{ event.start|localizeddate('none', 'none', null, null, "dd") }} au {{ event.end|localizeddate('long', 'none') }}
+                            {% else %}
+                                Du {{ event.start|localizeddate('none', 'none', null, null, "dd MMMM Y") }} au {{ event.end|localizeddate('none', 'none', null, null, "dd MMMM Y") }}
+                            {% endif %}
+                        </p>
+                    {% endif %}
+                </section>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+            </article>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <article class="col-4 col-12-mobile special">
+            <a href="#" class="image featured"><img src="/themes/html5up-helios/images/pic07.jpg" alt="" /></a>
+            <header>
+                <h3><a href="#">Gravida aliquam penatibus</a></h3>
+            </header>
+            <p>
+                Amet nullam fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor etiam
+                porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer interdum.
+            </p>
+        </article>
+        <article class="col-4 col-12-mobile special">
+            <a href="#" class="image featured"><img src="/themes/html5up-helios/images/pic08.jpg" alt="" /></a>
+            <header>
+                <h3><a href="#">Sed quis rhoncus placerat</a></h3>
+            </header>
+            <p>
+                Amet nullam fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor etiam
+                porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer interdum.
+            </p>
+        </article>
+        <article class="col-4 col-12-mobile special">
+            <a href="#" class="image featured"><img src="/themes/html5up-helios/images/pic09.jpg" alt="" /></a>
+            <header>
+                <h3><a href="#">Magna laoreet et aliquam</a></h3>
+            </header>
+            <p>
+                Amet nullam fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor etiam
+                porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer interdum.
+            </p>
+        </article>
+    </div>
+{% endblock %}
