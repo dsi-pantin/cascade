@@ -74,7 +74,7 @@ body {
 }
 
 #bg {
-  background: no-repeat url("/themes/cascade/images/accueil/header.jpg");
+  background: no-repeat url("../../images/accueil/header.jpg");
 }
 
 .Rectangle_2 {
@@ -88,4 +88,11 @@ body {
   width: 1189px;
   height: 560px;
   z-index: 6;
+}
+
+.carrousel img {
+  width: 350px;
+  float: right;
+  margin-right: 5px;
+  margin-bottom: 5px;
 }

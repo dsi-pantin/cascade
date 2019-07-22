@@ -17,16 +17,6 @@ class HomepageController extends AbstractController {
 	 * @Route("/", name="site_homepage_index", methods="GET")
 	 */
 	public function index(): Response{
-		$this->javascripts = array(
-			"themes/html5up-helios/assets/js/jquery.min.js",
-			"themes/html5up-helios/assets/js/jquery.dropotron.min.js",
-			"themes/html5up-helios/assets/js/jquery.scrolly.min.js",
-			"themes/html5up-helios/assets/js/jquery.scrollex.min.js",
-			"themes/html5up-helios/assets/js/browser.min.js",
-			"themes/html5up-helios/assets/js/breakpoints.min.js",
-			"themes/html5up-helios/assets/js/util.js",
-			"themes/html5up-helios/assets/js/main.js",
-		);
 
 		$activeHomepage = $this->getDoctrine()
 			->getRepository(Homepage::class)
@@ -41,7 +31,6 @@ class HomepageController extends AbstractController {
 
 		return $this->render('site/homepage/index.html.twig', [
 			'homepage' => $activeHomepage,
-			'javascripts' => $this->javascripts,
 			'configs' => $configs,
 		]);
 	}

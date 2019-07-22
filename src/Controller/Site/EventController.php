@@ -18,9 +18,17 @@ class EventController extends AbstractController {
 	 * @Route("/", name="site_event_index", methods="GET")
 	 */
 	public function index(EventRepository $eventRepository): Response {
+
+		$configs = array(
+			'site' => [
+				'theme' => 'cascade',
+			],
+		);
+
 		return $this->render('site/event/index.html.twig', [
 			'events' => $eventRepository->findAll(),
 			'pageStyle' => 'left-sidebar',
+			'configs' => $configs,
 		]);
 	}
 
@@ -96,5 +104,23 @@ class EventController extends AbstractController {
 		}
 
 		return $this->redirectToRoute('site_event_index');
+	}
+
+	/**
+	 * @Route("/carrousel", name="site_event_carrousel", methods="GET")
+	 */
+	public function carrousel(EventRepository $eventRepository): Response {
+
+		$configs = array(
+			'site' => [
+				'theme' => 'cascade',
+			],
+		);
+
+		return $this->render('site/event/carrousel.html.twig', [
+			'items' => $eventRepository->findAll(),
+			'pageStyle' => 'left-sidebar',
+			'configs' => $configs,
+		]);
 	}
 }
