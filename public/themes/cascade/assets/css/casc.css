@@ -1,0 +1,91 @@
+body {
+  background-color: rgba(16, 15, 21, 0.89);
+  left: -4px;
+  top: -3px;
+  width: 100%;
+  z-index: 5;
+}
+
+.CASC {
+  border-width: 2px;
+  border-color: rgb(255, 255, 255);
+  border-style: solid;
+  border-radius: 6px;
+  position: absolute;
+  left: 423px;
+  top: 869px;
+  width: 213px;
+  height: 68px;
+  z-index: 28;
+}
+
+.ACTIVITES {
+  border-width: 2px;
+  border-color: rgb(255, 255, 255);
+  border-style: solid;
+  position: absolute;
+  left: 637px;
+  top: 869px;
+  width: 213px;
+  height: 68px;
+  z-index: 25;
+}
+
+#header nav ul li a {
+  font-family: "Calibri";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.71);
+  -moz-transform: matrix( 0.89794691416869,0,-1.42777818174714e-15,0.89794691416869,0,0);
+  -webkit-transform: matrix( 0.89794691416869,0,-1.42777818174714e-15,0.89794691416869,0,0);
+  -ms-transform: matrix( 0.89794691416869,0,-1.42777818174714e-15,0.89794691416869,0,0);
+}
+
+#header nav ul li a:hover {
+  text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.71);
+}
+
+#header nav ul li:nth-child(5n-4) {
+  border-width: 2px;
+  border-color: rgb(255, 255, 255);
+  background-color: rgb(153, 211, 236);
+}
+
+#header nav ul li:nth-child(5n-3) {
+  border-width: 2px;
+  border-color: rgb(255, 255, 255);
+  background-color: rgb(255, 244, 129);
+}
+
+#header nav ul li:nth-child(5n-2) {
+  border-width: 2px;
+  border-color: rgb(255, 255, 255);
+  background-color: rgb(250, 178, 207);
+}
+
+#header nav ul li:nth-child(5n) {
+  border-width: 2px;
+  border-color: rgb(255, 255, 255);
+  background-color: rgb(139, 201, 180);
+}
+
+#header nav:before {
+  content: none;
+}
+
+#bg {
+  background: no-repeat url("/themes/cascade/images/accueil/header.jpg");
+}
+
+.Rectangle_2 {
+  border-width: 1px;
+  border-color: rgb(255, 255, 255);
+  border-style: solid;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  left: 250px;
+  top: 233px;
+  width: 1189px;
+  height: 560px;
+  z-index: 6;
+}
